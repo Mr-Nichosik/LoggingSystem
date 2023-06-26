@@ -3,16 +3,17 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <RootNamespace>LoggingSystem</RootNamespace>
-    <ImplicitUsings>enable</ImplicitUsings>
+    <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
     <PlatformTarget>x86</PlatformTarget>
-    <Title>Simple logging System</Title>
-    <Version>1.0.0</Version>
+    <Title>Logging System</Title>
+    <Version>1.1.0</Version>
     <Authors>Mr Nichosik</Authors>
     <Company>Mr Nichosik</Company>
-    <Description>Simple logging system, no frills.</Description>
+    <Description>Простая система логирования</Description>
     <PackageProjectUrl>https://github.com/Mr-Nichosik/Logging-System</PackageProjectUrl>
     <RepositoryUrl>https://github.com/Mr-Nichosik/Logging-System</RepositoryUrl>
+    <PackageReleaseNotes>Добавлен интерфейс логгера, добавлена возможность выбрать любую директория для логов, добавлены методы для получения информации о сборке LoggingSystem.</PackageReleaseNotes>
   </PropertyGroup>
 
 </Project>
