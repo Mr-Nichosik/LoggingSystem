@@ -1,7 +1,8 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net6.0-windows8.0</TargetFramework>
+    <SupportedOSPlatformVersion>7.0</SupportedOSPlatformVersion>
     <RootNamespace>LoggingSystem</RootNamespace>
     <ImplicitUsings>disable</ImplicitUsings>
     <Nullable>enable</Nullable>
