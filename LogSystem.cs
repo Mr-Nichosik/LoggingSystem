@@ -15,16 +15,13 @@ namespace LoggingSystem
         /// <summary>
         /// Свойство, хранящее в себе папку, в которую будут записываться логи
         /// </summary>
-        public string userFolderName { get; private set; }
+        public string UserFolderName { get; private set; }
 
         /// <summary>
         /// При создании экземпляра класса требуется указать папку, в которую будут записываться логи
         /// </summary>
         /// <param name="userFolderName"></param>
-        public LogSystem(string userFolderName)
-        {
-            this.userFolderName = userFolderName;
-        }
+        public LogSystem(string userFolderName) => this.UserFolderName = userFolderName;
 
         /// <summary>
         /// Метод Trace записывает самую мелкую и не самую значительной информации в логи во всех подробностях. Принимает текст, который нужно записать.
@@ -33,10 +30,10 @@ namespace LoggingSystem
         public void Trace(string text)
         {
             // Создаём в текущей директории, которую вы указываете, папку userFolderName
-            Directory.CreateDirectory(userFolderName);
+            Directory.CreateDirectory(UserFolderName);
             // Создаём/перезаписываем файл в userFolderName с названием типа "ДеньМесяцГод.log".
             // В текст записываем уровень логирования (здесь это Trace), дату и ваш текст.
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"TRACE: {DateTime.Now}: {text}\n");
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"TRACE: {DateTime.Now}: {text}\n");
         }
 
         /// <summary>
@@ -45,8 +42,8 @@ namespace LoggingSystem
         /// <param name="text"></param>
         public void Debug(string text)
         {
-            Directory.CreateDirectory(userFolderName);
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"DEBUG: {DateTime.Now}: {text}\n");
+            Directory.CreateDirectory(UserFolderName);
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"DEBUG: {DateTime.Now}: {text}\n");
         }
 
         /// <summary>
@@ -55,8 +52,8 @@ namespace LoggingSystem
         /// <param name="text"></param>
         public void Info(string text)
         {
-            Directory.CreateDirectory(userFolderName);
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"INFO: {DateTime.Now}: {text}\n");
+            Directory.CreateDirectory(UserFolderName);
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"INFO: {DateTime.Now}: {text}\n");
         }
 
         /// <summary>
@@ -65,8 +62,8 @@ namespace LoggingSystem
         /// <param name="text"></param>
         public void Warning(string text)
         {
-            Directory.CreateDirectory(userFolderName);
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"WARNING: {DateTime.Now}: {text}\n");
+            Directory.CreateDirectory(UserFolderName);
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"WARNING: {DateTime.Now}: {text}\n");
         }
 
         /// <summary>
@@ -75,8 +72,8 @@ namespace LoggingSystem
         /// <param name="text"></param>
         public void Error(string text)
         {
-            Directory.CreateDirectory(userFolderName);
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"ERROR: {DateTime.Now}: {text}\n");
+            Directory.CreateDirectory(UserFolderName);
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"ERROR: {DateTime.Now}: {text}\n");
         }
 
         /// <summary>
@@ -85,8 +82,8 @@ namespace LoggingSystem
         /// <param name="text"></param>
         public void Fatal(string text)
         {
-            Directory.CreateDirectory(userFolderName);
-            File.AppendAllText($"{userFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"FATAL: {DateTime.Now}: {text}\n");
+            Directory.CreateDirectory(UserFolderName);
+            File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"FATAL: {DateTime.Now}: {text}\n");
 
             Environment.Exit(0);
         }
@@ -96,7 +93,7 @@ namespace LoggingSystem
         /// </summary>
         public static string GetAssemblyVersion()
         {
-            string assembly = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+            string assembly = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
             assembly = assembly.Remove(assembly.Length - 2);
             return assembly;
         }
