@@ -13,15 +13,17 @@ namespace LoggingSystem
     public class LogSystem : ILogger
     {
         /// <summary>
-        /// Свойство, хранящее в себе папку, в которую будут записываться логи
+        /// Версия сборки.
         /// </summary>
-        public string UserFolderName { get; private set; }
+        public static string Version
+        {
+            get { return Assembly.GetExecutingAssembly().GetName().Version!.ToString(3); }
+        }
 
         /// <summary>
-        /// При создании экземпляра класса требуется указать папку, в которую будут записываться логи
+        /// Свойство, хранящее в себе папку, в которую будут записываться логи. Указать обязательно
         /// </summary>
-        /// <param name="userFolderName"></param>
-        public LogSystem(string userFolderName) => this.UserFolderName = userFolderName;
+        public required string UserFolderName { get; init; }
 
         /// <summary>
         /// Метод Trace записывает самую мелкую и не самую значительной информации в логи во всех подробностях. Принимает текст, который нужно записать.
@@ -86,16 +88,6 @@ namespace LoggingSystem
             File.AppendAllText($"{UserFolderName}\\{DateTime.Now.Day}.{DateTime.Now.Month}.{DateTime.Now.Year}.log", $"FATAL: {DateTime.Now}: {text}\n");
 
             Environment.Exit(0);
-        }
-
-        /// <summary>
-        /// Возвращает версию сборки.
-        /// </summary>
-        public static string GetAssemblyVersion()
-        {
-            string assembly = Assembly.GetExecutingAssembly().GetName().Version!.ToString();
-            assembly = assembly.Remove(assembly.Length - 2);
-            return assembly;
         }
     }
 }

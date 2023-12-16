@@ -8,7 +8,7 @@
     <Nullable>enable</Nullable>
     <PlatformTarget>x86</PlatformTarget>
     <Title>Logging System</Title>
-    <Version>1.1.2</Version>
+    <Version>1.1.3</Version>
     <Authors>Mr Nichosik</Authors>
     <Company>Mr Nichosik</Company>
     <Description>Простая система логирования</Description>
