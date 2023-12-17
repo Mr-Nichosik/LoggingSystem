@@ -9,12 +9,12 @@ ________________________________________________________________________________
 # Работа с системой логирования
 Создать:
 using LoggingSystem;
-private readonly LogSystem Logger = new LogSystem($"{Application.StartupPath}\\logs");,
-где $"{Application.StartupPath}\\logs" - это директория, куда будут записываться логи.
+private readonly LogSystem Logger = new LogSystem() { UserFolderName = "\\logs" };,
+где UserFolderName - это директория, куда будут записываться логи.
 
 # Методы класса LoggingSystem
 Есть несколько методов: Trace, Debug, Info, Warning, Error, Fatal.
 Они отличаются тем, что записывают в текст соответствующие пометки. Например, метод Error - ты его ставишь в том месте, где может вылезти потенциальная ошибка.
-Пишется нужный текст так: Logger.Error("В методе N  класс X возникла ошибка в таком-то месте").
+Пишется нужный текст так: Logger.Error("Текст").
 
 Далее в нужных местах просто добавляешь Logger.Error/Info/Debug и прочее. Работает на .NET 8 Впринципе, всё.		19.11.2023
